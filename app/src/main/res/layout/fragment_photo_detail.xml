@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <ProgressBar
+        android:id="@+id/photo_loading_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/photo_loading_error_ui"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo_loading_error_text" />
+
+        <Button
+            android:id="@+id/photo_loading_error_try_again_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/try_again_button" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/photo_content_ui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/photo_image_view"
+                android:layout_height="250dp"
+                android:layout_width="match_parent"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/photo_content_description"
+                tools:background="@color/accent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/card_view_photo_margin" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo_icon_image_view"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/owner_icon_content_description"
+                tools:background="@color/colorPrimary"
+                android:layout_below="@id/photo_image_view"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"/>
+
+            <TextView
+                android:id="@+id/photo_owner_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textStyle="bold"
+                tools:text="Owner Name"
+                android:layout_below="@id/photo_image_view"
+                android:layout_alignTop="@id/photo_icon_image_view"
+                android:layout_toEndOf="@+id/photo_icon_image_view" />
+
+            <TextView
+                android:id="@+id/photo_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+                android:textColor="@color/textColorPrimaryDark"
+                tools:text="Title"
+                android:layout_below="@id/photo_owner_name_text_view"
+                android:layout_toEndOf="@+id/photo_icon_image_view" />
+
+            <TextView
+                android:id="@+id/photo_date_text_view"
+                tools:text="Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginEnd="@dimen/card_view_photo_caption_horizontal_margin"
+                android:layout_below="@id/photo_image_view"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBaseline="@+id/photo_owner_name_text_view" />
+
+            <TextView
+                android:id="@+id/photo_description_text_view"
+                tools:text="Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimaryDark"
+                android:layout_margin="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_below="@id/photo_icon_image_view" />
+
+            <ImageView
+                android:id="@+id/photo_location_image_view"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_place"
+                android:layout_below="@id/photo_description_text_view"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginEnd="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_vertical_margin"/>
+
+            <TextView
+                android:id="@+id/photo_location_text_view"
+                tools:text="Location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey_500"
+                android:layout_alignTop="@id/photo_location_image_view"
+                android:layout_toEndOf="@+id/photo_location_image_view"
+                android:layout_marginTop="@dimen/card_view_photo_margin" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

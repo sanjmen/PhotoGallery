@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/photo_full_close_button"
+                android:src="@drawable/ic_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_alignParentTop="true"/>
+
+            <ImageView
+                android:id="@+id/photo_full_image_view"
+                android:layout_height="350dp"
+                android:layout_width="wrap_content"
+                android:scaleType="centerInside"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/photo_content_description"
+                tools:background="@color/colorAccent"
+                android:layout_below="@id/photo_full_close_button"/>
+
+            <TextView
+                android:id="@+id/photo_full_owner_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_photo_caption_horizontal_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+                android:textColor="@color/textColorPrimaryLight"
+                android:textStyle="bold"
+                tools:text="Owner Name"
+                android:layout_below="@id/photo_full_image_view" />
+
+            <TextView
+                android:id="@+id/photo_full_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+                android:textColor="@color/textColorPrimaryLight"
+                tools:text="Title"
+                android:layout_below="@id/photo_full_owner_name_text_view"/>
+
+            <View
+                android:id="@+id/photo_full_separator_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white_1000"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginBottom="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_below="@id/photo_full_title_text_view"/>
+
+            <TextView
+                android:id="@+id/photo_full_comments_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimaryLight"
+                tools:text="78 comments"
+                android:layout_below="@id/photo_full_separator_view"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+                android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+                android:layout_marginBottom="@dimen/card_view_photo_caption_vertical_margin"/>
+
+            <TextView
+                android:id="@+id/photo_full_comment_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimaryLight"
+                android:text="@string/comment"
+                android:visibility="gone"
+                android:layout_below="@id/photo_full_separator_view"
+                android:layout_margin="@dimen/card_view_photo_caption_vertical_margin"
+                android:paddingEnd="10dp"
+                android:layout_alignBaseline="@id/photo_full_comments_text_view"
+                android:layout_alignParentEnd="true"/>
+
+            <ImageView
+                android:id="@+id/photo_full_comment_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_comment"
+                android:visibility="gone"
+                android:layout_below="@id/photo_full_separator_view"
+                android:layout_toStartOf="@id/photo_full_comment_text_view"
+                android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

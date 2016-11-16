@@ -22,6 +22,7 @@ import com.photo.photogallery.api.entities.Photo;
 import com.photo.photogallery.api.entities.RecentPhotos;
 import com.photo.photogallery.network.AppImageLoader;
 import com.photo.photogallery.other.SpacesItemDecoration;
+import com.photo.photogallery.photodetail.PhotoDetailActivity;
 
 import javax.inject.Inject;
 
@@ -155,6 +156,9 @@ public class PhotosFragment extends Fragment implements
 
     @Override
     public void OnPhotoSelected(@NonNull Photo photo) {
+        Intent photoDetailIntent = PhotoDetailActivity.getIntent(getContext());
+        photoDetailIntent.putExtra(PhotoDetailActivity.ARGUMENT_PHOTO, photo);
+        startActivity(photoDetailIntent);
     }
 
     @Override
