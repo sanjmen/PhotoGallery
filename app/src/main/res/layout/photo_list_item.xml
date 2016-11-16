@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_min_height"
+    android:layout_gravity="center"
+    android:id="@+id/card_view_photo"
+    android:background="@color/photo_card_view_background"
+    app:cardElevation="@dimen/card_view_elevation">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/card_photo_image_view"
+            android:layout_height="175dp"
+            android:layout_width="0dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/photo_content_description"
+            tools:background="#00aa00"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/card_view_photo_margin" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/card_photo_icon_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/owner_icon_content_description"
+            tools:background="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/card_photo_image_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+            android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"/>
+
+        <TextView
+            android:id="@+id/card_photo_owner_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+            android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+            android:textColor="@color/list_item_short_description_text_color"
+            android:textStyle="bold"
+            tools:text="Owner Name"
+            app:layout_constraintTop_toBottomOf="@+id/card_photo_image_view"
+            app:layout_constraintLeft_toRightOf="@+id/card_photo_icon_image_view" />
+
+        <TextView
+            android:id="@+id/card_photo_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+            android:layout_marginStart="@dimen/card_view_photo_caption_horizontal_margin"
+            android:textColor="@color/list_item_short_description_text_color"
+            tools:text="Title"
+            app:layout_constraintTop_toBottomOf="@+id/card_photo_owner_name_text_view"
+            app:layout_constraintLeft_toRightOf="@+id/card_photo_icon_image_view" />
+
+        <TextView
+            android:id="@+id/card_photo_date_text_view"
+            tools:text="Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_view_photo_caption_vertical_margin"
+            android:layout_marginEnd="@dimen/card_view_photo_caption_horizontal_margin"
+            app:layout_constraintTop_toBottomOf="@+id/card_photo_image_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/card_photo_owner_name_text_view" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

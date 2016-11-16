@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">PhotoGallery</string>
+    <string name="photos_loading_error_text">Couldn\'t load photos</string>
+    <string name="photo_loading_error_text">Couldn\'t load photo</string>
+    <string name="try_again_button">Try again</string>
+    <string name="photo_content_description">Flickr photo</string>
+    <string name="owner_icon_content_description">Owner icon</string>
+    <string name="menu_show_as_grid">Show as grid</string>
+    <string name="menu_show_as_list">Show as list</string>
     <string name="go_back">Close and go back</string>
+    <string name="comment">Comment</string>
+    <string name="comments">Comments</string>
 </resources>
