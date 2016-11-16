@@ -1,29 +1,109 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    // Declared in dependencies.gradle in the root of the project.
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
     defaultConfig {
         applicationId "com.photo.photogallery"
-        minSdkVersion 21
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        // Notice that you may want to use BUILD_NUMBER from CI in real project with own CI.
+        versionName versions.name
+
+        // Make generated apks contain version name and code.
+        archivesBaseName = "app-${versions.name}-${versions.code}"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        photogallery {
+            storeFile file('keystore.jks')
+            storePassword 'photogallery'
+            keyAlias 'photogallery'
+            keyPassword 'photogallery'
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig signingConfigs.photogallery
+            applicationIdSuffix '.debug'
+        }
+
         release {
+            signingConfig signingConfigs.photogallery
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
 }
 
+// Libraries declared in dependencies.gradle in the root of the project
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    testCompile 'junit:junit:4.12'
+    compile libraries.dagger
+    apt libraries.daggerCompiler
+
+    compile libraries.rxJava
+    compile libraries.rxAndroid
+    compile libraries.rxBindings
+
+    compile libraries.okHttp
+    compile libraries.retrofit
+    compile libraries.retrofitGsonConverter
+    compile libraries.retrofitRxJavaAdapter
+    compile libraries.gson
+
+    // Do not compile AutoValue dependencies to the app.
+    apt libraries.autoValue
+    apt libraries.autoValueGson
+    apt libraries.autoValueParcel
+
+    // Make AutoValue annotation visible to the compiler.
+    provided libraries.autoValue
+    provided libraries.autoValueGson
+    provided libraries.autoValueParcel
+
+    compile libraries.supportAnnotations
+    compile libraries.supportAppCompat
+    compile libraries.supportDesign
+    compile libraries.supportRecyclerView
+    compile libraries.supportCardView
+    compile libraries.supportConstraintLayout
+
+    compile libraries.circleImageView
+
+    compile libraries.butterKnife
+    apt libraries.butterKnifeCompiler
+
+    compile libraries.picasso
+    compile libraries.picassoOkHttpDownloader
+    compile libraries.timber
+
+    // Developer tools
+    debugCompile libraries.okHttpLoggingInterceptor
+
+    testCompile libraries.junit
+    testCompile libraries.mockitoCore
+
+    androidTestCompile libraries.supportTestRunner
+    androidTestCompile libraries.supportTestRules
+    androidTestCompile libraries.espressoCore
+}
+
+configurations.all {
+    resolutionStrategy {
+        // Force our version of support-annotations, we have a conflict between app and androidTest dependency resolution.
+        force libraries.supportAnnotations
+    }
 }
