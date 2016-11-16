@@ -15,4 +15,11 @@
     <dimen name="list_item_image_height">150dp</dimen>
     <dimen name="list_item_title_text_size">21sp</dimen>
     <dimen name="list_item_vertical_space_between_items">4dp</dimen>
+
+    <dimen name="search_recycler_padding">4dp</dimen>
+    <dimen name="progress_bar_top_margin">64dp</dimen>
+    <dimen name="loading_text_padding">12dp</dimen>
+
+    <dimen name="search_icon_padding">12dp</dimen>
+    <dimen name="search_view_text_padding">65dp</dimen>
 </resources>

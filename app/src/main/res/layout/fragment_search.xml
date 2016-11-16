@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.photo.photogallery.other.CustomSearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/photos_content_ui"
+        android:background="@color/windowBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:visibility="gone"
+        android:layout_below="@+id/search_view" />
+
+
+    <ProgressBar
+        android:id="@+id/photos_loading_ui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/progress_bar_top_margin"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/photos_loading_ui_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/loading_text_padding"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        tools:text="@string/search_loading_text"
+        android:layout_below="@+id/photos_loading_ui"/>
+
+    <Button
+        android:id="@+id/photos_loading_error_try_again_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/try_again_button"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

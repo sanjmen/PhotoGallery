@@ -23,6 +23,7 @@ import com.photo.photogallery.api.entities.RecentPhotos;
 import com.photo.photogallery.network.AppImageLoader;
 import com.photo.photogallery.other.SpacesItemDecoration;
 import com.photo.photogallery.photodetail.PhotoDetailActivity;
+import com.photo.photogallery.search.SearchActivity;
 
 import javax.inject.Inject;
 
@@ -201,6 +202,9 @@ public class PhotosFragment extends Fragment implements
             case R.id.menu_show_as:
                 switchLayout(showAsGrid, item);
                 break;
+            case R.id.menu_search:
+                Intent searchIntent = SearchActivity.getIntent(getContext());
+                startActivity(searchIntent);
             default:
                 return super.onOptionsItemSelected(item);
         }

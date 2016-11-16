@@ -10,4 +10,6 @@
     <string name="go_back">Close and go back</string>
     <string name="comment">Comment</string>
     <string name="comments">Comments</string>
+    <string name="search_hint">Search</string>
+    <string name="search_loading_text">Searching...</string>
 </resources>

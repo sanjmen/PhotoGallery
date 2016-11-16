@@ -24,6 +24,10 @@
             android:name=".photodetail.PhotoDetailActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"/>
+
+        <activity android:name=".search.SearchActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation"/>
     </application>
 
 </manifest>

@@ -12,6 +12,9 @@ import com.photo.photogallery.photodetail.PhotoFullDialog;
 import com.photo.photogallery.photos.PhotosActivity;
 import com.photo.photogallery.photos.PhotosComponent;
 import com.photo.photogallery.photos.PhotosModule;
+import com.photo.photogallery.search.SearchActivity;
+import com.photo.photogallery.search.SearchComponent;
+import com.photo.photogallery.search.SearchModule;
 
 import javax.inject.Singleton;
 
@@ -32,7 +35,11 @@ public interface ApplicationComponent {
     @NonNull
     PhotoDetailComponent plus(@NonNull PhotoDetailModule photoDetailModule);
 
+    @NonNull
+    SearchComponent plus(@NonNull SearchModule searchModule);
+
     void inject(@NonNull PhotosActivity photosActivity);
     void inject(@NonNull PhotoDetailActivity photoDetailActivity);
     void inject(@NonNull PhotoFullDialog photoFullDialog);
+    void inject(@NonNull SearchActivity searchActivity);
 }
