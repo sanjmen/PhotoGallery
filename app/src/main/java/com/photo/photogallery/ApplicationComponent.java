@@ -19,5 +19,5 @@ import dagger.Component;
 
 public interface ApplicationComponent {
 
-    void inject(@NonNull PhotoGalleryApp photoGalleryApp);
+    void inject(@NonNull MainActivity mainActivity);
 }

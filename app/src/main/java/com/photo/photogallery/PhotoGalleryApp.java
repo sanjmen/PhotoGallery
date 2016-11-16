@@ -21,7 +21,6 @@ public class PhotoGalleryApp extends Application {
     public void onCreate() {
         super.onCreate();
         applicationComponent = prepareApplicationComponent().build();
-        applicationComponent.inject(this);
 
 
         if (BuildConfig.DEBUG) {
